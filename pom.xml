@@ -13,6 +13,17 @@
         <module>common</module>
         <module>dao</module>
     </modules>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+    </parent>
 
+    <properties>
+        <spring.boot.version>1.5.9.RELEASE</spring.boot.version>
+    </properties>
 
+    <dependencyManagement>
+        <dependencies></dependencies>
+    </dependencyManagement>
 </project>
