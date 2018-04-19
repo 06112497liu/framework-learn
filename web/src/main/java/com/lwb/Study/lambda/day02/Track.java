@@ -1,13 +1,9 @@
-package com.lwb.Study.lambda.day01.day02;
+package com.lwb.Study.lambda.day02;
 
 /**
  * 曲目类
  */
 public class Track {
-
-    /**
-     * 曲目名称
-     */
     private String name;
 
     public Track() {

@@ -1,26 +1,14 @@
-package com.lwb.Study.lambda.day01.day02;
+package com.lwb.Study.lambda.day02;
 
 import java.util.List;
 
 /**
- * 乐队类
+ * 艺术家类
  */
 public class Artist {
-
-    /**
-     * 乐队名称（团体或者个人）
-     */
-    private String name;
-
-    /**
-     * 乐队成员
-     */
-    private List<String> members;
-
-    /**
-     * 乐队来自哪里
-     */
-    private String origin;
+    private String name; // 乐队名称（团体或者个人）
+    private List<String> members; // 乐队成员
+    private String origin; // 乐队来自哪里
 
     public String getName() {
         return name;
