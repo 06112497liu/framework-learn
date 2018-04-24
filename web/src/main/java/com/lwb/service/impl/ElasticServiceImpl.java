@@ -2,6 +2,7 @@ package com.lwb.service.impl;
 
 import com.lwb.service.ElasticService;
 import org.elasticsearch.action.admin.cluster.node.info.NodesInfoResponse;
+import org.elasticsearch.action.get.GetRequestBuilder;
 import org.elasticsearch.client.transport.TransportClient;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,8 @@ public class ElasticServiceImpl implements ElasticService {
 
     @Override
     public void hello() {
+        String response = esClient.prepareGet("lwb", "student", "vTkstGIBOMlDG_DvJjfm").execute().actionGet().getSourceAsString();
         NodesInfoResponse nodesInfo = esClient.admin().cluster().prepareNodesInfo().execute().actionGet();
-        System.out.println(nodesInfo);
+        System.out.println(nodesInfo.getClusterName());
     }
 }
