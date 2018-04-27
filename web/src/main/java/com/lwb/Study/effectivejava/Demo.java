@@ -18,7 +18,7 @@ public class Demo {
 
     @Test
     public void test02() throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-//        Singleton s1 = Singleton.SINGLETON;
+        Singleton s1 = Singleton.SINGLETON;
         Constructor<Singleton> con = Singleton.class.getDeclaredConstructor();
         con.setAccessible(true);
         Singleton s2 = con.newInstance();
