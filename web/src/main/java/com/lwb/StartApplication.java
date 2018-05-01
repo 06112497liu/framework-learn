@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication(exclude = {
-            DataSourceAutoConfiguration.class
         })
 @MapperScan("com.lwb.dao")
-@ImportResource(locations = { "classpath:druid-bean.xml" })
+//@ImportResource(locations = { "classpath:druid-bean.xml" })
 public class StartApplication {
     public static void main(String[] args) {
         SpringApplication.run(StartApplication.class, args);
