@@ -1,5 +1,7 @@
 package com.lwb.Study.lambda.day01;
 
+import com.google.common.base.Joiner;
+
 import java.util.Comparator;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
@@ -16,5 +18,6 @@ public class Demo {
         boolean flag = predicate.test(3);
         int rs = comparator.compare(3, 4);
         System.out.println(flag);
+
     }
 }

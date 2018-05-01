@@ -1,6 +1,7 @@
 package com.lwb.Study.lambda.day04;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -35,7 +36,7 @@ public class PersonService {
         return people;
     }
 
-    public static List<Person> find(Criteria<Person> criteria) {
+    public static List find(Criteria<Person> criteria) {
         return list.stream()
                    .filter(o -> criteria.match(o)).collect(Collectors.toList());
     }
@@ -44,6 +45,7 @@ public class PersonService {
         String name = "zhangsan";
         List<Person> rs = find(p -> name.equals(p.getName()));
         System.out.println(rs);
+        System.out.println(String.join(",", Arrays.asList("1", "2")));
     }
 
 }

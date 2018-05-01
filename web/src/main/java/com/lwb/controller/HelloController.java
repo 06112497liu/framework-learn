@@ -12,8 +12,6 @@ import java.util.LinkedHashMap;
 @RequestMapping("/test")
 public class HelloController {
 
-    @Autowired
-    private User user;
 
     @RequestMapping("/hello")
     public String hello() {
@@ -23,6 +21,6 @@ public class HelloController {
     @RequestMapping("/test02")
     public User test02() {
         System.out.println(34555555);
-        return user;
+        return new User();
     }
 }

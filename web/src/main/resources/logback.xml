@@ -6,7 +6,8 @@
  -->
 <configuration scan="true" scanPeriod="15 seconds" debug="true">
     <property name="LOG_HOME" value="${log.path:-./log}" debug="true"/>
-    <property name="LOG_LEVEL" value="INFO"/>
+    <property name="LOG_LEVEL" value="DEBUG"/>
+    <property name="FRAMEWORK_LOG_LEVLE" value="DEBUG"/>
 
     <!--
         控制台日志
@@ -55,10 +56,11 @@
     </appender>
 
     <logger name="com.lwb" level="${LOG_LEVEL}"/>
-    <logger name="org.springframework" level="${LOG_LEVEL}"/>
-    <logger name="org.mybatis" level="${LOG_LEVEL}"/>
+    <logger name="org.springframework" level="${FRAMEWORK_LOG_LEVLE}"/>
+    <logger name="org.hibernate" level="${FRAMEWORK_LOG_LEVLE}"/>
+    <logger name="org.mybatis" level="${FRAMEWORK_LOG_LEVLE}"/>
     <logger name="java.sql" level="${LOG_LEVEL}"/>
-    <logger name="org.quartz" level="${LOG_LEVEL}"/>
+    <logger name="org.quartz" level="info"/>
     <!-- 日志级别 -->
     <root level="${LOG_LEVEL}">
         <appender-ref ref="CONSOLE"/>
