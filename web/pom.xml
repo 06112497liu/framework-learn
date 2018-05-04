@@ -22,6 +22,12 @@
         <dependency>
             <artifactId>common</artifactId>
             <groupId>com.lwb</groupId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>

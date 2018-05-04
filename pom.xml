@@ -33,6 +33,7 @@
         <aspectj.version>1.8.13</aspectj.version>
         <fasterxml.jackson.version>2.8.5</fasterxml.jackson.version>
         <fastjson.version>1.2.47</fastjson.version>
+        <activeMQ.version>5.14.4</activeMQ.version>
     </properties>
 
     <dependencyManagement>
@@ -60,6 +61,19 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- spring-boot-starter-activemq -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-activemq</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-pool</artifactId>
+                <version>${activeMQ.version}</version>
             </dependency>
 
             <!-- mybatis-spring-boot-starter -->
@@ -170,17 +184,7 @@
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${fasterxml.jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>${fasterxml.jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.module</groupId>
-                <artifactId>jackson-module-jaxb-annotations</artifactId>
                 <version>${fasterxml.jackson.version}</version>
             </dependency>
         </dependencies>
