@@ -19,7 +19,7 @@ public class MQTest {
     @Test
     public void contextLoads() {
         for (int i = 0; i < 10; i++) {
-            testProducer.sendMsg(QueueList.BUSINESS1, "Queue Message " + i);
+            testProducer.sendTxtMsg(QueueList.BUSINESS1, "Queue Message " + i);
         }
     }
 }
