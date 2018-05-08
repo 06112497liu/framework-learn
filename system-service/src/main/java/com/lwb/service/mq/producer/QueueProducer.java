@@ -7,10 +7,24 @@ package com.lwb.service.mq.producer;
 public interface QueueProducer {
 
     /**
-     * 发送消息
+     * 发送textMessage消息
      * @param destName
      * @param msg
      */
-    void sendMsg(String destName, String msg);
+    void sendTxtMsg(String destName, String msg);
+
+    /**
+     * 发送ObjectMessage消息
+     * @param destName
+     * @param msg
+     */
+    void sendObjMsg(String destName, String msg);
+
+    /**
+     * 发送MapMessage消息
+     * @param destName
+     * @param msg
+     */
+    void sendMapMsg(String destName, String msg);
 
 }
