@@ -1,6 +1,6 @@
-package com.lwb.controller;
+package com.lwb.controller.elastic;
 
-import com.lwb.service.ElasticService;
+import com.lwb.service.elastic.ElasticService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
