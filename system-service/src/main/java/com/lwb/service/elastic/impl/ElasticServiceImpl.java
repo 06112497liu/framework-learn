@@ -1,8 +1,7 @@
-package com.lwb.service.impl;
+package com.lwb.service.elastic.impl;
 
-import com.lwb.service.ElasticService;
+import com.lwb.service.elastic.ElasticService;
 import org.elasticsearch.action.admin.cluster.node.info.NodesInfoResponse;
-import org.elasticsearch.action.get.GetRequestBuilder;
 import org.elasticsearch.client.transport.TransportClient;
 import org.springframework.stereotype.Service;
 
