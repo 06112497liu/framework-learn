@@ -25,9 +25,21 @@ public class ProduceMsgController {
     @Autowired
     private TopicProducer topicProducer;
 
-    @GetMapping("/queue/{msg}")
-    public RestResult produce(@PathVariable("msg") String msg) {
-        queueProducer.sendMsg(QueueList.BUSINESS1, msg);
+    @GetMapping("/queue/txt/{msg}")
+    public RestResult produceTxtMessage(@PathVariable("msg") String msg) {
+        queueProducer.sendTxtMsg(QueueList.BUSINESS1, msg);
+        return RestResult.ok();
+    }
+
+    @GetMapping("/queue/map/{msg}")
+    public RestResult produceMapMessage(@PathVariable("msg") String msg) {
+        queueProducer.sendMapMsg(QueueList.BUSINESS1, msg);
+        return RestResult.ok();
+    }
+
+    @GetMapping("/queue/obj/{msg}")
+    public RestResult produceObjMessage(@PathVariable("msg") String msg) {
+        queueProducer.sendObjMsg(QueueList.BUSINESS2, msg);
         return RestResult.ok();
     }
 
