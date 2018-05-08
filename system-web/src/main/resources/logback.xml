@@ -62,6 +62,7 @@
     <logger name="org.mybatis" level="${FRAMEWORK_LOG_LEVLE}"/>
     <logger name="java.sql" level="${LOG_LEVEL}"/>
     <logger name="org.quartz" level="info"/>
+    <logger name="org.apache.activemq" level="info"/>
     <!-- 日志级别 -->
     <root level="${LOG_LEVEL}">
         <appender-ref ref="CONSOLE"/>
