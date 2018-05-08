@@ -1,4 +1,4 @@
-package com.lwb.service;
+package com.lwb.service.elastic;
 
 /**
  * @Author liuweibo
