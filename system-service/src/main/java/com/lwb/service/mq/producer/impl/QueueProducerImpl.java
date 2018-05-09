@@ -2,13 +2,16 @@ package com.lwb.service.mq.producer.impl;
 
 import com.lwb.bean.po.Person;
 import com.lwb.service.mq.producer.QueueProducer;
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.connection.ConnectionFactoryUtils;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
+import org.springframework.jms.core.MessagePostProcessor;
 import org.springframework.stereotype.Service;
 
 import javax.jms.*;
@@ -25,8 +28,12 @@ public class QueueProducerImpl implements QueueProducer {
     @Autowired
     private JmsTemplate jmsTemplate;
 
+    @Autowired
+    private ConnectionFactory connectionFactory;
+
     /**
      * 发送textMessage消息
+     *
      * @param destName
      * @param msg
      */
@@ -38,16 +45,22 @@ public class QueueProducerImpl implements QueueProducer {
     }
 
     @Override
-    public void sendObjMsg(String destName, String msg) {
+    public void sendObjMsg(String destName, String msg) throws JMSException {
         ActiveMQQueue queue = new ActiveMQQueue(destName);
-        MessageCreator creator = session -> {
-            ObjectMessage m = session.createObjectMessage();
-            Person person = new Person();
-            person.setName("张三");
-            m.setObject(person);
-            return m;
-        };
-        this.jmsTemplate.send(queue, creator);
+        Session session = connectionFactory.createConnection().createSession(false, Session.CLIENT_ACKNOWLEDGE);
+        ObjectMessage m = session.createObjectMessage();
+        Person person = new Person();
+        person.setName("张三");
+        m.setObject(person);
+//        MessageCreator creator = session.createObjectMessage(person);
+//        MessageCreator creator = session -> {
+//            ObjectMessage m = session.createObjectMessage();
+//            Person person = new Person();
+//            person.setName("张三");
+//            m.setObject(person);
+//            return m;
+//        };
+        this.jmsTemplate.convertAndSend(queue, m);
     }
 
     @Override
