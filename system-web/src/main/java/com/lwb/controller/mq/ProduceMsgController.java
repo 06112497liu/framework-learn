@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.jms.JMSException;
+
 /**
  * @author liuweibo
  * @date 2018/5/4
@@ -31,6 +33,9 @@ public class ProduceMsgController {
         return RestResult.ok();
     }
 
+
+
+
     @GetMapping("/queue/map/{msg}")
     public RestResult produceMapMessage(@PathVariable("msg") String msg) {
         queueProducer.sendMapMsg(QueueList.BUSINESS1, msg);
@@ -38,7 +43,7 @@ public class ProduceMsgController {
     }
 
     @GetMapping("/queue/obj/{msg}")
-    public RestResult produceObjMessage(@PathVariable("msg") String msg) {
+    public RestResult produceObjMessage(@PathVariable("msg") String msg) throws JMSException {
         queueProducer.sendObjMsg(QueueList.BUSINESS2, msg);
         return RestResult.ok();
     }
